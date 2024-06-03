@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ai-cyber-watchdog"
+version = "0.1.0"
+description = ""
+authors = ["ecorbetthp <ecorbett@hybridpathways.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+ollama = "^0.2.0"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
