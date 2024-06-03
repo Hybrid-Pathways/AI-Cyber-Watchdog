@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 i
+=======
+
+>>>>>>> parent of 9b8c719 (Revert "PAI-2 Initial Code-of-Conduct md")
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge
@@ -60,10 +64,17 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
+<<<<<<< HEAD
 reported to the community leaders responsible for enforcement email:
 
 * **Rob Losier** rlosier@hybridpathways.com
 * **Dan Levasseur** dlevassuer@hybridpathways.com
+=======
+reported to the community leaders responsible for enforcement via email:
+
+* **Rob Losier** rlosier@hybridpathways.com 
+* **Dan Levasseur** dlevasseur@hybridpathways.com
+>>>>>>> parent of 9b8c719 (Revert "PAI-2 Initial Code-of-Conduct md")
 
 All complaints will be reviewed and investigated promptly and fairly.
 
@@ -133,4 +144,8 @@ For answers to common questions about this code of conduct, see the FAQ at
 [v2.1]: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
 [Mozilla CoC]: https://github.com/mozilla/diversity
 [FAQ]: https://www.contributor-covenant.org/faq
+<<<<<<< HEAD
 [translations]: https://www.contributor-covenant.org/translations
+=======
+[translations]: https://www.contributor-covenant.org/translations
+>>>>>>> parent of 9b8c719 (Revert "PAI-2 Initial Code-of-Conduct md")
