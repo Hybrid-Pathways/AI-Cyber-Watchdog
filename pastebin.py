@@ -1,9 +1,14 @@
 from duckduckgo_search import DDGS
-import json
+import os
 import requests
 import datetime
+from dotenv import load_dotenv
 from ollama import Client
-client = Client(host='http://127.0.0.1:11434')
+
+load_dotenv()
+OLLAMA_HOST = os.getenv('OLLAMA_HOST')
+
+client = Client(host=OLLAMA_HOST)
 
 llm_model = 'llama3'
 
