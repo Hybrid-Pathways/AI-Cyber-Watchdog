@@ -1,8 +1,14 @@
-from shodan import Shodan
-
+import os
 import json
 
-api = Shodan('Insert Shodan API')
+from shodan import Shodan
+from dotenv import load_dotenv
+
+load_dotenv()
+
+SHODAN_API_KEY = os.getenv('SHODAN_API_KEY')
+
+api = Shodan(SHODAN_API_KEY)
 
 def shodan_org_scan(query: str) -> str:
     if ("query" in query):
