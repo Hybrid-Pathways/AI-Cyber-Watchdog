@@ -1,13 +1,18 @@
-#import ollama
-import shodan_tools
-import cisa_search
+import os
 import datetime
-import pastebin
-from ollama import Client
-client = Client(host='http://192.168.1.141:11434')
-import cisa_demo
 
-print("""  ____      _                __        __    _       _     ____                      _ 
+#import cisa_demo
+#import cisa_search
+
+import pastebin
+import shodan_tools
+
+from ollama import Client
+from dotenv import load_dotenv
+
+
+print(""" 
+       ____      _                __        __    _       _     ____                      _ 
   / ___|   _| |__   ___ _ __  \ \      / /_ _| |_ ___| |__ |  _ \  ___   __ _  __   _/ |
  | |  | | | | '_ \ / _ \ '__|  \ \ /\ / / _` | __/ __| '_ \| | | |/ _ \ / _` | \ \ / / |
  | |__| |_| | |_) |  __/ |      \ V  V / (_| | || (__| | | | |_| | (_) | (_| |  \ V /| |
@@ -46,13 +51,21 @@ Creators: Rich Wickersham, Tom Bendien and Joe Carroll
                   \;;;.;;;;/ooooooooo.....ooooooooooooo 
                     \;;;;/ooooooo.....ooooooooooo...ooo\ 
                     |o\;/oooo.....ooooooooooooo......ooo 
+
                     oooooo....ooooooooooooooooooo.....oo\ 
                    oooo....oooooooooooooooooooooooo..oooo 
                   ___.oooooooooooooo....ooooooooooooooooo\ 
                  /RAG\oooooooooooo.....ooooooooooooooooooo 
                  |AI|ooooo.oooooo....ooooooooooooooooooooo 
                /oo\ML/oooo..ooooooooooooooooooo..oooooooooooo 
+
  """)             
+
+load_dotenv()
+
+OLLAMA_HOST = os.getenv('OLLAMA_HOST')
+
+client = Client(host=OLLAMA_HOST)
 
 llm_model = 'llama3'
 
