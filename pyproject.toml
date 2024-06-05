@@ -3,16 +3,14 @@ name = "ai-cyber-watchdog"
 version = "0.1.0"
 description = ""
 authors = ["ecorbetthp <ecorbett@hybridpathways.com>"]
-license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
-python-dotenv = "^1.0.1"
+python = "3.10.14"
 shodan = "^1.31.0"
-feedparser = "^6.0.11"
-ollama = "^0.2.0"
 duckduckgo-search = "^6.1.5"
+python-dotenv = "^1.0.1"
+ollama = "^0.2.0"
 
 
 [build-system]

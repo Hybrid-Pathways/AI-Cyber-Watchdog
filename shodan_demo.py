@@ -10,56 +10,8 @@ import shodan_tools
 from ollama import Client
 from dotenv import load_dotenv
 
-
-print(""" 
-       ____      _                __        __    _       _     ____                      _ 
-  / ___|   _| |__   ___ _ __  \ \      / /_ _| |_ ___| |__ |  _ \  ___   __ _  __   _/ |
- | |  | | | | '_ \ / _ \ '__|  \ \ /\ / / _` | __/ __| '_ \| | | |/ _ \ / _` | \ \ / / |
- | |__| |_| | |_) |  __/ |      \ V  V / (_| | || (__| | | | |_| | (_) | (_| |  \ V /| |
-  \____\__, |_.__/ \___|_|       \_/\_/ \__,_|\__\___|_| |_|____/ \___/ \__, |   \_(_)_|
-       |___/                                                            |___/           
-Version 1.0 An open source AI+RAG Multi-model Learning Tool for Vulnerability Management
-Creators: Rich Wickersham, Tom Bendien and Joe Carroll  
-
-               ......                  ............. 
-            .....;;...                ................ 
-         .......;;;;;/mmmmmmmmmmmmmm\/.................. 
-       ........;;;mmmmmmmmmmmmmmmmmmm..................... 
-     .........;;m/;;;;\mmmmmm/;;;;;\m...................... 
-  ..........;;;m;;mmmm;;mmmm;;mmmmm;;m...................... 
-..........;;;;;mmmnnnmmmmmmmmmmnnnmmmm\.................... 
-.........  ;;;;;n/#####\mmmmmn/#####\mmm\................. 
-.......     ;;;;n##...##nmmmmn##...##nmmmm\............. 
-....        ;;;n#.....|nmmmmn#.....#nmmmmm,l......... 
- ..          mmmn\.../mmmmmmmn\.../mmmmm,m,lll..... 
-          /mmmmmmmmmmmmmmmmmmmmmmmmmmm,mmmm,llll.. 
-      /mmmmmmmmmmmmmmmmmmmmmmm\mmmmm/mmmmmmm,lll/ 
-   /mmmmm/..........\mmmmmmmmmmnnmnnmmmmmmmmm,ll 
-  mmmmmm|...........|mmmmmmmmmmmmmmmmmmmmmmmm,ll 
-  \mmmmmmm\......./mmmmmmmmmmmmmmmmmmmmmmmmm,llo 
-    \mmmmmmm\.../mmmmmmmmmmmmmmmmmmmmmmmmmm,lloo 
-      \mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm,ll/oooo 
-         \mmmmmmmmmmll..;;;.;;;;;;/mmm,lll/oooooo\ 
-                   ll..;;;.;;;;;;/llllll/ooooooooo 
-                   ll.;;;.;;;;;/.llll/oooooooooo..o 
-                   ll;;;.;;;;;;..ll/ooooooooooo...oo 
-                   \;;;;.;;;;;..ll/ooooo...ooooo..oo\ 
-                 ;;;;;;;;;;;;..ll|oooo.....oooooooooo 
-                ;;;;;;.;;;;;;.ll/oooo.....ooooooo....\ 
-                ;;;;;.;;;;;;;ll/ooooooooooooo.....oooo 
-                 \;;;.;;;;;;/oooooooooooo.....oooooooo\ 
-                  \;;;.;;;;/ooooooooo.....ooooooooooooo 
-                    \;;;;/ooooooo.....ooooooooooo...ooo\ 
-                    |o\;/oooo.....ooooooooooooo......ooo 
-
-                    oooooo....ooooooooooooooooooo.....oo\ 
-                   oooo....oooooooooooooooooooooooo..oooo 
-                  ___.oooooooooooooo....ooooooooooooooooo\ 
-                 /RAG\oooooooooooo.....ooooooooooooooooooo 
-                 |AI|ooooo.oooooo....ooooooooooooooooooooo 
-               /oo\ML/oooo..ooooooooooooooooooo..oooooooooooo 
-
- """)             
+with open('watchdog.ascii', 'r') as file:
+    print(file.read())
 
 load_dotenv()
 
