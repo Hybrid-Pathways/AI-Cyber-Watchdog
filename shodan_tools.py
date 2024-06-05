@@ -2,11 +2,7 @@ import os
 import json
 
 from shodan import Shodan
-from dotenv import load_dotenv
-
-load_dotenv()
-
-SHODAN_API_KEY = os.getenv('SHODAN_API_KEY')
+from config import SHODAN_API_KEY
 
 api = Shodan(SHODAN_API_KEY)
 

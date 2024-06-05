@@ -8,14 +8,11 @@ import pastebin
 import shodan_tools
 
 from ollama import Client
-from dotenv import load_dotenv
+from config import OLLAMA_HOST
 
 with open('watchdog.ascii', 'r') as file:
     print(file.read())
 
-load_dotenv()
-
-OLLAMA_HOST = os.getenv('OLLAMA_HOST')
 
 client = Client(host=OLLAMA_HOST)
 
