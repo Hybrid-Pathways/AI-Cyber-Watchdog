@@ -1,98 +1,63 @@
-import os
 import datetime
 
-#import cisa_demo
-#import cisa_search
-
-import pastebin
-import shodan_tools
+import modules.pastebin as pastebin
+import modules.shodan_tools as shodan_tools
 
 from ollama import Client
-from dotenv import load_dotenv
-
-
-print(""" 
-       ____      _                __        __    _       _     ____                      _ 
-  / ___|   _| |__   ___ _ __  \ \      / /_ _| |_ ___| |__ |  _ \  ___   __ _  __   _/ |
- | |  | | | | '_ \ / _ \ '__|  \ \ /\ / / _` | __/ __| '_ \| | | |/ _ \ / _` | \ \ / / |
- | |__| |_| | |_) |  __/ |      \ V  V / (_| | || (__| | | | |_| | (_) | (_| |  \ V /| |
-  \____\__, |_.__/ \___|_|       \_/\_/ \__,_|\__\___|_| |_|____/ \___/ \__, |   \_(_)_|
-       |___/                                                            |___/           
-Version 1.0 An open source AI+RAG Multi-model Learning Tool for Vulnerability Management
-Creators: Rich Wickersham, Tom Bendien and Joe Carroll  
-
-               ......                  ............. 
-            .....;;...                ................ 
-         .......;;;;;/mmmmmmmmmmmmmm\/.................. 
-       ........;;;mmmmmmmmmmmmmmmmmmm..................... 
-     .........;;m/;;;;\mmmmmm/;;;;;\m...................... 
-  ..........;;;m;;mmmm;;mmmm;;mmmmm;;m...................... 
-..........;;;;;mmmnnnmmmmmmmmmmnnnmmmm\.................... 
-.........  ;;;;;n/#####\mmmmmn/#####\mmm\................. 
-.......     ;;;;n##...##nmmmmn##...##nmmmm\............. 
-....        ;;;n#.....|nmmmmn#.....#nmmmmm,l......... 
- ..          mmmn\.../mmmmmmmn\.../mmmmm,m,lll..... 
-          /mmmmmmmmmmmmmmmmmmmmmmmmmmm,mmmm,llll.. 
-      /mmmmmmmmmmmmmmmmmmmmmmm\mmmmm/mmmmmmm,lll/ 
-   /mmmmm/..........\mmmmmmmmmmnnmnnmmmmmmmmm,ll 
-  mmmmmm|...........|mmmmmmmmmmmmmmmmmmmmmmmm,ll 
-  \mmmmmmm\......./mmmmmmmmmmmmmmmmmmmmmmmmm,llo 
-    \mmmmmmm\.../mmmmmmmmmmmmmmmmmmmmmmmmmm,lloo 
-      \mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm,ll/oooo 
-         \mmmmmmmmmmll..;;;.;;;;;;/mmm,lll/oooooo\ 
-                   ll..;;;.;;;;;;/llllll/ooooooooo 
-                   ll.;;;.;;;;;/.llll/oooooooooo..o 
-                   ll;;;.;;;;;;..ll/ooooooooooo...oo 
-                   \;;;;.;;;;;..ll/ooooo...ooooo..oo\ 
-                 ;;;;;;;;;;;;..ll|oooo.....oooooooooo 
-                ;;;;;;.;;;;;;.ll/oooo.....ooooooo....\ 
-                ;;;;;.;;;;;;;ll/ooooooooooooo.....oooo 
-                 \;;;.;;;;;;/oooooooooooo.....oooooooo\ 
-                  \;;;.;;;;/ooooooooo.....ooooooooooooo 
-                    \;;;;/ooooooo.....ooooooooooo...ooo\ 
-                    |o\;/oooo.....ooooooooooooo......ooo 
-
-                    oooooo....ooooooooooooooooooo.....oo\ 
-                   oooo....oooooooooooooooooooooooo..oooo 
-                  ___.oooooooooooooo....ooooooooooooooooo\ 
-                 /RAG\oooooooooooo.....ooooooooooooooooooo 
-                 |AI|ooooo.oooooo....ooooooooooooooooooooo 
-               /oo\ML/oooo..ooooooooooooooooooo..oooooooooooo 
-
- """)             
-
-load_dotenv()
-
-OLLAMA_HOST = os.getenv('OLLAMA_HOST')
+from config import OLLAMA_HOST, LLM_MODEL
 
 client = Client(host=OLLAMA_HOST)
+llm_model = LLM_MODEL
 
-llm_model = 'llama3'
 
-while True:
-    fdtn = str((datetime.datetime.now().day)) + str((datetime.datetime.now().month)) + str((datetime.datetime.now().year)) + str((datetime.datetime.now().hour)) + str((datetime.datetime.now().minute)) + str((datetime.datetime.now().second))
-    companyName = str(input('\nEnter company name: '))
-    shodanReport = shodan_tools.shodan_org_scan(companyName)
-    print('\nShodan Report:\n{0}\n\n'.format(shodanReport))
-    fullReport = ''
-    if len(shodanReport) > 0:
-        stream = client.chat(
-            model=llm_model,
-            messages=[{'role': 'user', 'content': 'Here is a report from Shodan: {0} Provide a summary of this report. Then, detail steps of mitigation in bullet format'.format(shodanReport)}],
-            stream=True,
-        )
-        for chunk in stream:
-            print(chunk['message']['content'], end='', flush=True)
-            fullReport = fullReport + chunk['message']['content']
-        file = open("shodan_report_{0}.txt".format(fdtn), "a")
-        file.write("\nSearch for: {0}".format(companyName))
+def get_current_time():
+    now = datetime.datetime.now()
+    return str(now.day) + str(now.month) + str(now.year) + str(now.hour) + str(now.minute) + str(now.second)
+
+def get_shodan_report(company_name):
+    return shodan_tools.shodan_org_scan(company_name)
+
+def get_full_report(shodan_report):
+    stream = client.chat(
+        model=llm_model,
+        messages=[
+            {
+                'role': 'user', 
+                'content': f'Here is a report from Shodan: {shodan_report} Provide a summary of this report. Then, detail steps of mitigation in bullet format'
+            }
+        ],
+        stream=True,
+    )
+    full_report = ''
+    for chunk in stream:
+        print(chunk['message']['content'], end='', flush=True)
+        full_report += chunk['message']['content']
+    return full_report
+
+def write_report_to_file(file_name, company_name, shodan_report, full_report):
+    with open(file_name, "a") as file:
+        file.write(f"\nSearch for: {company_name}\n\n\n")
+        file.write(shodan_report)
         file.write("\n\n\n")
-        file.write(shodanReport)
-        file.write("\n\n\n")
-        file.write(fullReport)
-        file.close()
-        pastebin.SearchPastebin(companyName)
-    else:
-        print("Information not found.")
-        pastebin.SearchPastebin(companyName)
-    print("Done!\n\n")
+        file.write(full_report)
+
+def main():
+    while True:
+        current_time = get_current_time()
+        company_name = input('\nEnter company name: ')
+        shodan_report = get_shodan_report(company_name)
+        print(f'\nShodan Report:\n{shodan_report}\n\n')
+        if shodan_report:
+            full_report = get_full_report(shodan_report)
+            file_name = f"shodan_report_{current_time}.txt"
+            write_report_to_file(file_name, company_name, shodan_report, full_report)
+            pastebin.SearchPastebin(company_name)
+        else:
+            print("Information not found.")
+            pastebin.SearchPastebin(company_name)
+        print("Done!\n\n")
+
+if __name__ == "__main__":
+    with open('watchdog.ascii', 'r') as file:
+       print(file.read())
+    main()
