@@ -1,3 +1,4 @@
+import os
 import datetime
 
 import modules.pastebin as pastebin
@@ -35,7 +36,18 @@ def get_full_report(shodan_report):
     return full_report
 
 def write_report_to_file(file_name, company_name, shodan_report, full_report):
-    with open(file_name, "a") as file:
+    # Define the directory
+    directory = "reports"
+
+    # Check if the directory exists, if not, create it
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    # Append the directory to the file name
+    file_path = os.path.join(directory, file_name)
+
+    # Write to the file in the directory
+    with open(file_path, "a") as file:
         file.write(f"\nSearch for: {company_name}\n\n\n")
         file.write(shodan_report)
         file.write("\n\n\n")

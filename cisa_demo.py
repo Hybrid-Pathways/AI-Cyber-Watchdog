@@ -1,6 +1,6 @@
 import ollama
 #import shodan_tools
-import cisa_search
+import modules.cisa_search as cisa_search
 import datetime
 
 llm_model = 'llama3'
