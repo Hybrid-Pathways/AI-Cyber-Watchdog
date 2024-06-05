@@ -2,7 +2,7 @@ import os
 import json
 
 from shodan import Shodan
-from config import SHODAN_API_KEY
+from ..config import SHODAN_API_KEY
 
 api = Shodan(SHODAN_API_KEY)
 
