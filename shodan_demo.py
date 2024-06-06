@@ -26,7 +26,12 @@ def get_full_report(shodan_report):
         messages=[
             {
                 'role': 'user',
-                'content': f'Here is a report from Shodan: {shodan_report} Provide a summary of this report. Then, detail steps of mitigation in bullet format and provide suggested tools for performing mitigation tasks. For any Operating System detected and network ports , provide applicable CVEs in a bulleted list format. Try to determine if the IP or Hostname is associated with a cloud service provider. Provide a bulleted list of CIS benchmarks with versions that may apply.'
+                'content': f'Here is a report from Shodan: {shodan_report} '
+                           f'Provide a summary of this report. Then, detail steps of mitigation in bullet format '
+                           f'and provide suggested tools for performing mitigation tasks. For any Operating System '
+                           f'detected and network ports, provide applicable CVEs in a bulleted list format. Try to '
+                           f'determine if the IP or Hostname is associated with a cloud service provider. Provide a '
+                           f'bulleted list of CIS benchmarks with versions that may apply.'
             }
         ],
         stream=True,
