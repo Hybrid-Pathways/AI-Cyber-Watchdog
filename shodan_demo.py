@@ -1,7 +1,7 @@
 import os
 import datetime
 
-import modules.pastebin as pastebin
+#import modules.pastebin as pastebin
 import modules.shodan_tools as shodan_tools
 
 from ollama import Client
@@ -64,10 +64,10 @@ def main():
             full_report = get_full_report(shodan_report)
             file_name = f"shodan_report_{current_time}.txt"
             write_report_to_file(file_name, company_name, shodan_report, full_report)
-            pastebin.SearchPastebin(company_name)
+#            pastebin.SearchPastebin(company_name)
         else:
             print("Information not found.")
-            pastebin.SearchPastebin(company_name)
+#            pastebin.SearchPastebin(company_name)
         print("Done!\n\n")
 
 if __name__ == "__main__":
