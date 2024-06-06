@@ -24,7 +24,7 @@ def get_full_report(shodan_report):
         messages=[
             {
                 'role': 'user', 
-                'content': f'Here is a report from Shodan: {shodan_report} Provide a summary of this report. Then, detail steps of mitigation in bullet format'
+                'content': f'Here is a report from Shodan: {shodan_report} Provide a summary of this report. Then, detail steps of mitigation in bullet format, Also provide any applicale CVEs.'
             }
         ],
         stream=True,
@@ -56,7 +56,8 @@ def write_report_to_file(file_name, company_name, shodan_report, full_report):
 def main():
     while True:
         current_time = get_current_time()
-        company_name = input('\nEnter company name: ')
+        print("Provide a company name, single ip, list of ips or hostname(s) to search Shodan.")
+        company_name = input('\nEnter Data: ')
         shodan_report = get_shodan_report(company_name)
         print(f'\nShodan Report:\n{shodan_report}\n\n')
         if shodan_report:
