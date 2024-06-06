@@ -26,7 +26,7 @@ def get_full_report(shodan_report):
         messages=[
             {
                 'role': 'user',
-                'content': f'Here is a report from Shodan: {shodan_report} Provide a summary of this report. Then, detail steps of mitigation in bullet format, Also provide any applicable CVEs. Try to determine if the IP or Hostname is associated with a cloud service provider and any CIS benchmarks that may apply.'
+                'content': f'Here is a report from Shodan: {shodan_report} Provide a summary of this report. Then, detail steps of mitigation in bullet format and provide suggested tools for performing mitigation tasks. For any Operating System detected and network ports , provide applicable CVEs in a bulleted list format. Try to determine if the IP or Hostname is associated with a cloud service provider. Provide a bulleted list of CIS benchmarks with versions that may apply.'
             }
         ],
         stream=True,
@@ -70,7 +70,7 @@ def main():
             write_report_to_file(file_name, company_name, shodan_report, full_report)
         else:
             print("Information not found.")
-        print("Done!\n\n")
+        print("\n\n Report Analysis Completed!\n\n")
 
 
 if __name__ == "__main__":
