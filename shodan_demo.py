@@ -63,7 +63,6 @@ def write_report_to_file(file_name, company_name, shodan_report, full_report):
         file.write("\n\n\n")
         file.write(full_report)
 
-
 def main():
     while True:
         current_time = get_current_time()
@@ -73,10 +72,12 @@ def main():
         if not company_name:  # Check if the input is empty
             print("No input provided.") 
             continue  # Skip the rest of the loop and prompt for input again
-
+        
+        print("\nShodan Report:\n")
         shodan_report = get_shodan_report(company_name)
-        print(f'\nShodan Report:\n{shodan_report}\n\n')
+        #print(f'\nShodan Report:\n{shodan_report}\n\n')
         if shodan_report:
+
             full_report = get_full_report(shodan_report)
             file_name = f"shodan_report_{current_time}.txt"
             write_report_to_file(file_name, company_name, shodan_report, full_report)

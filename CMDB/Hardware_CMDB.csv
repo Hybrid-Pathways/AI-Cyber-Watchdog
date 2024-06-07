@@ -1,0 +1,6 @@
+name,type,ip_address,mac_address,manufacture,model,serial_number,operational_status,cpu_count,cpu_core_count,total_memory
+ACE load balancer,load_balancer,10.2.0.1,23:23:12:sd:23:23,Cisco,A1,111,on,1,1,8
+F5 big IP load balancer,load_balancer,10.2.0.2,23:23:12:sd:23:24,F5,A1,222,on,2,2,8
+Office printer,printer,10.5.9.2,23:23:12:sd:23:25,brother,A1,333,on,3,3,8
+Cisco Router,router,10.6.2.1,23:23:12:sd:23:26,Cisco,A1,CBS220-8T-E-2G ,on,4,4,8
+Server_01,Unified Computing System,10.3.3.3,23:23:12:sd:23:27,Cisco,1.4(3u)(NX-OS) 5.0,CBS220-8T-E-2G ,on,5,5,8

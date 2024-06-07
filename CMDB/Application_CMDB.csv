@@ -1,0 +1,12 @@
+application_id,application_name,cersion,application_server,hostnames,application_ip,application_port,location,owner,environment,memory_requirement,disk_space_requirement,dependencies,compliance,license_type,description
+1,Phenix project,1,Django,web1.neweratech.com,10.0.0.1,[443],CA datacenter,Hanyang,Prod,8GB,512GB,Amazon support,GDPR,MIT,This is a description for Phenix project
+2,Amazon support,2.2,Springboot,web2.neweratech.com,10.0.0.2,[443],AWS cloud,John,Prod,8GB,512GB,Phenix project,GDPR,MIT,This is a description for Amazon support
+3,Todu,1.2,PHP,web3.neweratech.com,10.0.0.3,[80],Azure cloud,Tom,Stage,8GB,512GB,none,GDPR,MIT,This is a description for Todu
+4,Watch Dog,2,Flask,web4.neweratech.com,10.0.0.4,[80],CA datacenter,Bob,Dev,8GB,512GB,none,GDPR,MIT,This is a description for Watch Dog
+5,Lantern,3.2,Django,web5.neweratech.com,10.0.0.5,[80],CA datacenter,Mike,Dev,8GB,512GB,none,GDPR,MIT,This is a description for Lantern
+6,Alexa,4.3,Django,web6.neweratech.com,10.0.0.6,[80],AWS cloud,Alex,Dev,8GB,512GB,none,GDPR,MIT,This is a description for Alexa
+7,SpringCraft,1,Django,web7.neweratech.com,134.209.192.144,"[8081, 8082, 22]",CA datacenter,Hanyang,Prod,8GB,512GB,Amazon support,GDPR,MIT,this is a description for CA datacenter
+9,PHPulse,1.2,PHP,ec2-3-23-119-29.us-east-2.compute.amazonaws.com,3.23.119.29,"[80, 443, 22]",Azure cloud,Tom,Stage,8GB,512GB,none,GDPR,MIT,this is a description for Azure cloud
+10,CodeWave,2,Flask,advancedpwr.com,138.197.185.31,"[8080, 9000, 8010, 80, 8081, 22, 443]",CA datacenter,Bob,Dev,8GB,512GB,none,GDPR,MIT,this is a description for CA datacenter
+11,DjangoNest,3.2,Django,web8.neweratech.com,146.190.120.88,"[8081, 30002, 5006, 22, 8095]",CA datacenter,Mike,Dev,8GB,512GB,none,GDPR,MIT,this is a description for CA datacenter
+12,EchoNest,4.3,Django,ec2-13-200-204-188.ap-south-1.compute.amazonaws.com,13.200.204.188,"[443, 22]",AWS cloud,Alex,Dev,8GB,512GB,none,GDPR,MIT,this is a description for AWS cloud
