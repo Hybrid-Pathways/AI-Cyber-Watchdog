@@ -6,7 +6,7 @@ authors = ["ecorbetthp <ecorbett@hybridpathways.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.10.14"
+python = "^3.10.12"
 shodan = "^1.31.0"
 duckduckgo-search = "^6.1.5"
 python-dotenv = "^1.0.1"

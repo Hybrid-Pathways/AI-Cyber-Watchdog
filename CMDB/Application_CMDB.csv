@@ -1,0 +1,7 @@
+Application ID,Application Name,Version,Application server,Application IP,Application port,Location,Owner,Environment,Memory requirement,Disk space requirement,Dependencies,Compliance,License Type,Description
+001,Phenix project,1.00,Django,10.0.0.1,443,CA datacenter,Hanyang,Prod,8GB,512GB,Amazon support,GDPR,MIT,This is a description for Phenix project
+002,Amazon support,2.2,Springboot,10.0.0.2,443,AWS cloud,John,Prod,8GB,512GB,Phenix project,GDPR,MIT,This is a description for Amazon support
+003,Todu,1.2,PHP,10.0.0.3,80,Azure cloud,Tom,Stage,8GB,512GB,none,GDPR,MIT,This is a description for Todu
+004,Watch Dog,2,Flask,10.0.0.4,80,CA datacenter,Bob,Dev,8GB,512GB,none,GDPR,MIT,This is a description for Watch Dog
+005,Lantern,3.2,Django,10.0.0.5,80,CA datacenter,Mike,Dev,8GB,512GB,none,GDPR,MIT,This is a description for Lantern
+006,Alexa,4.3,Django,10.0.0.6,80,AWS cloud,Alex,Dev,8GB,512GB,none,GDPR,MIT,This is a description for Alexa
