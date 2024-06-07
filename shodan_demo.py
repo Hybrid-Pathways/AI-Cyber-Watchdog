@@ -26,12 +26,14 @@ def get_full_report(shodan_report):
         messages=[
             {
                 'role': 'user',
-                'content': f'Here is a report from Shodan: {shodan_report} '
-                           f'Provide a summary of this report. Then, detail steps of mitigation in text table format '
-                           f'and provide suggested tools for performing mitigation tasks in a column of the mitigation table.'
-                           f'For any Operating System detected and open network ports, provide applicable CVEs in '
-                           f'a bulleted list format. Try to determine if the IP or Hostname is associated with a ' 
-                           f'cloud service provider. Provide a bulleted list of CIS benchmarks with versions that may apply.'
+                'content': f'Here is a report from Shodan: {shodan_report}. Given your expertise as Security Analyst , provide a summary of this report:'
+                           f'1. Detail steps of mitigation in a numbered list, provide suggested tools for performing mitigation tasks sub-bullet for each step.'
+                           f'2. For any Operating System detected, provide a list of services running on open ports.'
+                           f'3. For CVEs returned in the Shodan report, provide / lookup the description of the CVE nd the CVSS score if provided using'
+                           f'https://nvd.nist.gov/vuln/detail/<Actual CVE> , if not found look for other sources, and if no CVEs provided generate a list of potential CVEs that may apply.'
+                           f'4. Try to determine if the IP or Hostname is associated with a cloud service provider , supply a bulleted list of CIS benchmarks with versions that may apply.'
+                           f'5. If ports 80, 443 etc, do not assume its Apache, it could be Nginx, IIS, etc. Provide a list of potential web servers that may be running '
+                           f'if you cant determine the actual webservice.'
             }
         ],
         stream=True,
@@ -66,7 +68,12 @@ def main():
     while True:
         current_time = get_current_time()
         print("Provide a company name, single IP, list of IPs, or hostname(s) to search Shodan.")
-        company_name = input('\nEnter Data: ')
+        company_name = input('\nEnter Data: ').strip()  # Use .strip() to remove leading/trailing whitespace
+
+        if not company_name:  # Check if the input is empty
+            print("No input provided.") 
+            continue  # Skip the rest of the loop and prompt for input again
+
         shodan_report = get_shodan_report(company_name)
         print(f'\nShodan Report:\n{shodan_report}\n\n')
         if shodan_report:
