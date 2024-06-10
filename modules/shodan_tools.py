@@ -4,7 +4,7 @@ import json
 import socket
 import requests
 
-from shodan import Shodan
+from shodan import Shodan, exception
 from bs4 import BeautifulSoup
 from config import SHODAN_API_KEY
 
@@ -99,7 +99,22 @@ def shodan_org_scan(query: str) -> str:
                 print(f"\n ***WARNING*** IP {service['ip_str']} not found in CMDB, excluding from report")
                 continue
 
-            host = api.host(service['ip_str'], minify=True, history=False)
+            try:
+                host = api.host(service['ip_str'], minify=True, history=False)
+            
+            except exception.APIError:
+                print(f"IP {service['ip_str']} not found in Shodan. Retrying 3 times")
+                for i in range(3):
+                    try:
+                        host = api.host(service['ip_str'], minify=True, history=False)
+                    except Exception as e  :
+                        continue
+                    else:
+                        break
+                if (i == 2):
+                    print(f"IP {service['ip_str']} not found in Shodan after 3 retries, excluding from report")
+                    continue
+
             report += f'\nIP: {service["ip_str"]}, Hostnames: {host["hostnames"]}, Ports: {host["ports"]}, Operating System: {host["os"]}, ISP Info: {host["isp"]} Country: {host["country_name"]}'
             print(f'\nIP: {service["ip_str"]}, Hostnames: {host["hostnames"]}, Ports: {host["ports"]}, Operating System: {host["os"]}, ISP Info: {host["isp"]} Country: {host["country_name"]}')
             if "vulns" in host:

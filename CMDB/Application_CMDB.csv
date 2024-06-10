@@ -10,5 +10,4 @@ application_id,application_name,version,application_server,operating_system,host
 9,PHPulse,1.2,PHP,Ubuntu 22.04,ec2-3-23-119-29.us-east-2.compute.amazonaws.com,3.23.119.29,"[80, 443, 22]",Azure cloud,Tom,Stage,8GB,512GB,none,GDPR,MIT,this is a description for Azure cloud
 10,CodeWave,2,Flask,windows server 2016,advancedpwr.com,138.197.185.31,"[8080, 9000, 8010, 80, 8081, 22, 443]",CA datacenter,Bob,Dev,8GB,512GB,none,GDPR,MIT,this is a description for CA datacenter
 11,DjangoNest,3.2,Django,windows server 2016,web8.neweratech.com,146.190.120.88,"[8081, 30002, 5006, 22, 8095]",CA datacenter,Mike,Dev,8GB,512GB,none,GDPR,MIT,this is a description for CA datacenter
-12,EchoNest,4.3,Django,RedHat 8.0,ec2-13-200-204-188.ap-south-1.compute.amazonaws.com,13.200.204.188,"[443, 22]",AWS cloud,Alex,Dev,8GB,512GB,none,GDPR,MIT,this is a description for AWS cloud
-13,NextSTrak,2.3,Nexus,Ubuntu 22.04,vulny1.hybridpathwayslab.com,172.190.52.97,"[80,22]",Azure cloud,Mike,Prod,8GB,512GB,none,GDPR,MIT,this is a description for NextSTrak
+12,NextSTrak,2.3,Nexus,Ubuntu 22.04,vulny1.hybridpathwayslab.com,172.190.52.97,"[80,22]",Azure cloud,Mike,Prod,8GB,512GB,none,GDPR,MIT,this is a description for NextSTrak

@@ -26,14 +26,13 @@ def get_full_report(shodan_report):
         messages=[
             {
                 'role': 'user',
-                'content': f'Here is a report from Shodan: {shodan_report}. Given your expertise as Security Analyst , provide a summary of this report:'
-                           f'1. Detail steps of mitigation in a numbered list, provide suggested tools for performing mitigation tasks sub-bullet for each step.'
-                           f'2. For any Operating System detected, provide a list of services running on open ports.'
-                           f'3. For CVEs returned in the Shodan report, provide / lookup the description of the CVE nd the CVSS score if provided using'
-                           f'https://nvd.nist.gov/vuln/detail/<Actual CVE> , if not found look for other sources, and if no CVEs provided generate a list of potential CVEs that may apply.'
-                           f'4. Try to determine if the IP or Hostname is associated with a cloud service provider , supply a bulleted list of CIS benchmarks with versions that may apply.'
-                           f'5. If ports 80, 443 etc, do not assume its Apache, it could be Nginx, IIS, etc. Provide a list of potential web servers that may be running '
-                           f'if you cant determine the actual webservice.'
+                'content': f'Here is a report from Shodan: {shodan_report}. Given your expertise as Security Analyst , provide a summary of this report with the folowing requirements:'
+                           f'1. For all IP Addresses in the report , detail the steps of mitigation in a numbered list, provide suggested tools and process for performing mitigation tasks for each step.'
+                           f'2. For Operating Systems detected or provided from CMDB, provide a list of services running on open ports. If ssh is detected, provide all applicable CVEs and CVSS scores.'
+                           f'3. For CVEs returned in the Shodan report, provide the description of the CVE and the CVSS score, if no CVEs provided generate a list of potential CVEs that may apply.'
+                           f'4. Try to determine if the IP or Hostname is associated with a cloud service provider (ISP Info), supply a bulleted list of CIS benchmarks and NIST controls with versions that may apply.'
+                           f'5. If ports 80, 443, do not assume its Apache, it could be Nginx, try to determine the web server software and version, provide a list of potential web servers that may be in use.'
+                           f'6. Also note that if you are seeing ports 443 and/or 8443, it could be a load balancer, provide a list of potential load balancers that may be in use.'
             }
         ],
         stream=True,
