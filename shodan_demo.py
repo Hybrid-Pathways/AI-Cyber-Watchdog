@@ -28,7 +28,7 @@ def get_full_report(shodan_report):
                 'role': 'user',
                 'content': f'Here is a report from Shodan: {shodan_report}. Given your expertise as Security Analyst , provide a summary of this report with the folowing requirements:'
                            f'1. For all IP Addresses in the report , detail the steps of mitigation in a numbered list, provide suggested tools and process for performing mitigation tasks for each step.'
-                           f'2. For Operating Systems detected or provided from CMDB, provide a list of services running on open ports. If ssh is detected, provide all applicable CVEs and CVSS scores.'
+                           f'2. For all Operating Systems detected or provided from CMDB(using the "Operating System:" field in the report, ubuntu is very common), along with CVE information, provide a list of services running on open ports. If ssh is detected, provide all applicable CVEs and CVSS scores.'
                            f'3. For CVEs returned in the Shodan report, provide the description of the CVE and the CVSS score, if no CVEs provided generate a list of potential CVEs that may apply.'
                            f'4. Try to determine if the IP or Hostname is associated with a cloud service provider (using the "ISP Info:" field in the report), supply a bulleted list of CIS benchmarks and NIST controls https://csrc.nist.gov/pubs/sp/800/ with versions that may apply.'
                            f'5. For open ports, provide a list of potential services that may be running on the ports, provide a list of potential vulnerabilities that may be associated with the services.'

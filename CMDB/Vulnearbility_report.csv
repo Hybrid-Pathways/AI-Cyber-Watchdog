@@ -1,0 +1,7 @@
+vulnerability,CVE_code,severity,hostname,ip_addr,open_ports,impact
+Open port 8081,CVE-2023-50703,High,api-sandbox.neachat.com,146.190.120.88,8081,Man in the middle attack
+Open port 22,CVE-2023-48795,High,api-sandbox.neachat.com,146.190.120.88,22,remote login 
+Open port 80,CVE-2023-50703,High,ec2-3-23-119-29.us-east-2.compute.amazonaws.com,3.23.119.29,80,Man in the middle attack
+Open port 22,CVE-2023-48795,High,ec2-3-23-119-29.us-east-2.compute.amazonaws.com,3.23.119.29,22,remote login 
+Open port 22,CVE-2023-48795,High,ec2-13-200-204-188.ap-south-1.compute.amazonaws.com,134.209.192.144,22,remote login 
+Open port 8081,CVE-2023-48795,High,ec2-13-200-204-188.ap-south-1.compute.amazonaws.com,134.209.192.144,8081,remote login 
