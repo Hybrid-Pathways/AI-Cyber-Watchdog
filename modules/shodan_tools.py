@@ -116,8 +116,13 @@ def shodan_org_scan(query: str) -> str:
                 print(f"3. Ports reported by shodan but not in vulnerability reports: {shodan_port_set - vuln_port_set}")
                 output_port_list = list(port_intersection)
 
-            print(f'\nIP: {ip}, Hostnames: {host["hostnames"]}, Ports: {output_port_list}, Operating System: {host["os"]}, ISP Info: {host["isp"]}, Country: {host["country_name"]}')
-            report += f'\nIP: {ip}, Hostnames: {host["hostnames"]}, Ports: {output_port_list}, Operating System: {host["os"]}, ISP Info: {host["isp"]} Country: {host["country_name"]}'
+            os_used = host["os"]            
+            cmdb_os = CMDB_OS_check(ip)
+            if (host["os"] is None):
+                os_used = cmdb_os
+
+            print(f'\nIP: {ip}, Hostnames: {host["hostnames"]}, Ports: {output_port_list}, Operating System: {os_used}, ISP Info: {host["isp"]}, Country: {host["country_name"]}')
+            report += f'\nIP: {ip}, Hostnames: {host["hostnames"]}, Ports: {output_port_list}, Operating System: {os_used}, ISP Info: {host["isp"]} Country: {host["country_name"]}'
             if "vulns" in host:
                 report += ', CVE Info: '
                 for cve in host["vulns"]:
