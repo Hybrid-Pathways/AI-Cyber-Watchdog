@@ -30,9 +30,9 @@ def get_full_report(shodan_report):
                            f'1. For all IP Addresses in the report , detail the steps of mitigation in a numbered list, provide suggested tools and process for performing mitigation tasks for each step.'
                            f'2. For Operating Systems detected or provided from CMDB, provide a list of services running on open ports. If ssh is detected, provide all applicable CVEs and CVSS scores.'
                            f'3. For CVEs returned in the Shodan report, provide the description of the CVE and the CVSS score, if no CVEs provided generate a list of potential CVEs that may apply.'
-                           f'4. Try to determine if the IP or Hostname is associated with a cloud service provider (ISP Info), supply a bulleted list of CIS benchmarks and NIST controls https://csrc.nist.gov/pubs/sp/800/ with versions that may apply.'
-                           f'5. If ports 80, 443, do not assume its Apache, it could be Nginx, try to determine the web server software and version, provide a list of potential web servers that may be in use.'
-                           f'6. Also note that if you are seeing ports 443 and/or 8443, it could be a load balancer, provide a list of potential load balancers that may be in use.'
+                           f'4. Try to determine if the IP or Hostname is associated with a cloud service provider (using the "ISP Info:" field in the report), supply a bulleted list of CIS benchmarks and NIST controls https://csrc.nist.gov/pubs/sp/800/ with versions that may apply.'
+                           f'5. For open ports, provide a list of potential services that may be running on the ports, provide a list of potential vulnerabilities that may be associated with the services.'
+                           f'6. Also note that if you are seeing ports 443 and/or 8443, it could be a load balancer, if a cloud provider was detected list their load balancer services otherwise provide a list of potential load balancers that may be in use.'
             }
         ],
         stream=True,
