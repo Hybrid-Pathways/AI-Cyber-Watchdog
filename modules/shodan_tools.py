@@ -100,8 +100,8 @@ def shodan_org_scan(query: str) -> str:
                 continue
 
             host = api.host(service['ip_str'], minify=True, history=False)
-            report += f'\nIP: {ip}, Hostnames: {host["hostnames"]}, Ports: {host["ports"]}, Operating System: {host["os"]}, ISP Info: {host["isp"]} Country: {host["country_name"]}'
-            print(f'\nIP: {ip}, Hostnames: {host["hostnames"]}, Ports: {host["ports"]}, Operating System: {host["os"]}, ISP Info: {host["isp"]} Country: {host["country_name"]}')
+            report += f'\nIP: {service["ip_str"]}, Hostnames: {host["hostnames"]}, Ports: {host["ports"]}, Operating System: {host["os"]}, ISP Info: {host["isp"]} Country: {host["country_name"]}'
+            print(f'\nIP: {service["ip_str"]}, Hostnames: {host["hostnames"]}, Ports: {host["ports"]}, Operating System: {host["os"]}, ISP Info: {host["isp"]} Country: {host["country_name"]}')
             if "vulns" in host:
                 report += ', CVE Info: '
                 for cve in host["vulns"]:
