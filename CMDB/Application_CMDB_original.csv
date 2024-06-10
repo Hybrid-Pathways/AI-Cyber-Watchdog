@@ -1,4 +1,4 @@
-application_id,application_name,cersion,application_server,hostnames,application_ip,application_port,location,owner,environment,memory_requirement,disk_space_requirement,dependencies,compliance,license_type,description
+application_id,application_name,version,application_server,hostnames,application_ip,application_port,location,owner,environment,memory_requirement,disk_space_requirement,dependencies,compliance,license_type,description
 1,Phenix project,1,Django,web1.neweratech.com,10.0.0.1,[443],CA datacenter,Hanyang,Prod,8GB,512GB,Amazon support,GDPR,MIT,This is a description for Phenix project
 2,Amazon support,2.2,Springboot,web2.neweratech.com,10.0.0.2,[443],AWS cloud,John,Prod,8GB,512GB,Phenix project,GDPR,MIT,This is a description for Amazon support
 3,Todu,1.2,PHP,web3.neweratech.com,10.0.0.3,[80],Azure cloud,Tom,Stage,8GB,512GB,none,GDPR,MIT,This is a description for Todu

@@ -74,6 +74,7 @@ def shodan_org_scan(query: str) -> str:
                 #This IP is not found in the CMDB
                 print(f"\n***WARNING*** The IP corresponding with domain {query} is {ip}")
                 print(f"***WARNING*** IP {ip} not found in CMDB, excluding from report")
+                return report
 
             host = api.host(ip, minify=True, history=False)
             #print(host)
@@ -99,8 +100,8 @@ def shodan_org_scan(query: str) -> str:
                 continue
 
             host = api.host(service['ip_str'], minify=True, history=False)
-            report += '\nIP: {0}, Hostnames: {1}, Ports: {2}, Operating System: {3}.'.format(service['ip_str'], host['hostnames'], host['ports'], host['os'])
-            print("\nIP: {0}, Hostnames: {1}, Ports: {2}, Operating System: {3}.".format(service['ip_str'], host['hostnames'], host['ports'], host['os']))
+            report += f'\nIP: {ip}, Hostnames: {host["hostnames"]}, Ports: {host["ports"]}, Operating System: {host["os"]}, ISP Info: {host["isp"]} Country: {host["country_name"]}'
+            print(f'\nIP: {ip}, Hostnames: {host["hostnames"]}, Ports: {host["ports"]}, Operating System: {host["os"]}, ISP Info: {host["isp"]} Country: {host["country_name"]}')
             if "vulns" in host:
                 report += ', CVE Info: '
                 for cve in host["vulns"]:
