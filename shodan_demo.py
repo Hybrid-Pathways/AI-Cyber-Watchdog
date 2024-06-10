@@ -86,6 +86,7 @@ def main():
 
 
 if __name__ == "__main__":
+    os.system('cls' if os.name == 'nt' else 'clear')
     with open('watchdog.ascii', 'r') as file:
         print(file.read())
     main()
