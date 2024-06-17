@@ -3,13 +3,12 @@ import os
 import datetime
 
 from ollama import Client
-from settings import OLLAMA_HOST, LLM_MODEL
+from settings import OLLAMA_HOST, OLLAMA_MODEL
 
 import modules.shodan_tools as shodan_tools
 
 client = Client(host=OLLAMA_HOST)
-llm_model = LLM_MODEL
-
+llm_model = OLLAMA_MODEL
 
 def get_current_time():
     now = datetime.datetime.now()
