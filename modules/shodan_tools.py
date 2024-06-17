@@ -3,7 +3,7 @@ import json
 import socket
 
 from shodan import Shodan
-from config import SHODAN_API_KEY
+from settings import SHODAN_API_KEY
 
 api = Shodan(SHODAN_API_KEY)
 

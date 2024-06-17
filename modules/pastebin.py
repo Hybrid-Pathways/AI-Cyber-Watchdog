@@ -4,7 +4,7 @@ import datetime
 
 from ollama import Client
 from duckduckgo_search import DDGS
-from config import OLLAMA_HOST, LLM_MODEL
+from settings import OLLAMA_HOST, LLM_MODEL
 
 client = Client(host=OLLAMA_HOST)
 
